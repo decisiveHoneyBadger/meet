@@ -26,17 +26,17 @@ This app was designed to offer users the opportunity to find out any events taki
 
 As a user I should have the option to choose the number of events I want to see
 
-### Scenario 1: No number is specified
+### Scenario 1: When user hasn't specified a number, 32 is the default number
 
-- Given the number of events is empty
-- When the user loads the page
-- Then a default of 32 events will be displayed
+- Given the list of events is loaded
+- When the user hasn't specified the number of events
+- Then the default number of displayed events should be 32
 
-## Scenario 2: User has specified event count preference
+## Scenario 2: User can change the number of events they want to see
 
-- Given the number of events has been set
-- When the user loads the page
-- Then the specified count of events will be displayed
+- Given the list of events is loaded
+- When the user inserts a number in the "number of events" input
+- Then the number of displayed events should match the entered number
 
 ## Feature 4: Use the App when offline
 
