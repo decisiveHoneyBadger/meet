@@ -2,7 +2,7 @@
   "name": "meet",
   "version": "0.1.0",
   "private": true,
-  "homepage":"https://decisiveHoneyBadger.github.io/meet",
+  "homepage": "https://decisiveHoneyBadger.github.io/meet",
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.4",
     "@testing-library/react": "^13.3.0",
@@ -51,6 +51,8 @@
     ]
   },
   "devDependencies": {
+    "@wojtekmaj/enzyme-adapter-react-17": "^0.6.7",
+    "enzyme": "^3.11.0",
     "gh-pages": "^4.0.0"
   }
 }
