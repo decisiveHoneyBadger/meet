@@ -13,6 +13,15 @@ class App extends Component {
     numberOfEvents: 32,
   };
 
+  updateNumberOfEvents = (numberOfEvents) => {
+    this.setState(
+      {
+        numberOfEvents,
+      },
+      this.updateEvents(this.state.location, numberOfEvents),
+    );
+  };
+
   // changes the state of events
   updateEvents = (location, eventCount = 31) => {
     getEvents().then((events) => {

@@ -6,13 +6,17 @@ class NumberOfEvents extends Component {
   };
 
   handleInputChanged = (event) => {
-    const value = event.target.value;
-    if (!isNaN(value) && value >= 1 && value <= 32) {
-      this.setState({ numberOfEvents: value, ErrorText: '' });
+    const inputNumberOfEvents = event.target.value;
+    if (
+      !isNaN(inputNumberOfEvents) &&
+      inputNumberOfEvents >= 1 &&
+      inputNumberOfEvents <= 32
+    ) {
+      this.setState({ numberOfEvents: inputNumberOfEvents, ErrorText: '' });
     } else {
       this.setState({ ErrorText: 'Please select a number from 1 to 32.' });
     }
-    this.props.updateEvents(undefined, value);
+    this.props.updateNumberOfEvents(inputNumberOfEvents);
   };
 
   render() {
