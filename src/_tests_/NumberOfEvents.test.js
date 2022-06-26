@@ -10,12 +10,12 @@ describe('<NumberOfEvents /> component', () => {
   });
 
   test('render textbox', () => {
-    expect(NumberOfEventsWrapper.find('#events-number')).toHaveLength(1);
+    expect(NumberOfEventsWrapper.find('.number-of-events')).toHaveLength(1);
   });
 
   test('display number 32 by default', () => {
     expect(
-      NumberOfEventsWrapper.find('#events-number').get(0).props.value,
+      NumberOfEventsWrapper.find('.events-number').get(0).props.value,
     ).toEqual(32);
   });
 
@@ -28,7 +28,7 @@ describe('<NumberOfEvents /> component', () => {
 
   test('only allow number above 1 of events > 0', () => {
     NumberOfEventsWrapper.setState({ numberOfEvents: 32 });
-    NumberOfEventsWrapper.find('#events-number').simulate('change', {
+    NumberOfEventsWrapper.find('#number-of-events').simulate('change', {
       target: { value: -1 },
     });
     expect(NumberOfEventsWrapper.state('numberOfEvents')).toEqual(32);
@@ -36,7 +36,7 @@ describe('<NumberOfEvents /> component', () => {
 
   test('only allow number', () => {
     NumberOfEventsWrapper.setState({ numberOfEvents: 32 });
-    NumberOfEventsWrapper.find('#events-number').simulate('change', {
+    NumberOfEventsWrapper.find('#number-of-events').simulate('change', {
       target: { value: 'string' },
     });
     expect(NumberOfEventsWrapper.state('numberOfEvents')).toEqual(32);
