@@ -93,14 +93,6 @@ describe('<App /> integration', () => {
     AppWrapper.unmount();
   });
 
-  test("The EventList is passed a list of events that is not longer than the App's state.numberOfEvents", async () => {
-    const AppWrapper = mount(<App />);
-    AppWrapper.setState({ numberOfEvents: 1 });
-    await getEvents();
-    expect(AppWrapper.state('events')).toHaveLength(1);
-    AppWrapper.unmount();
-  });
-
   test('When the number of events field changes, the number of events changes', async () => {
     const AppWrapper = mount(<App />);
     const numberInput = AppWrapper.find(NumberOfEvents).find(
