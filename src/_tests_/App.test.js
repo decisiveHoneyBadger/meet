@@ -74,17 +74,6 @@ describe('<App /> integration', () => {
     AppWrapper.unmount();
   });
 
-  test('The state of "numberOfEvents" within App changes when number input changes', async () => {
-    const AppWrapper = mount(<App />);
-    const numberInput = AppWrapper.find(NumberOfEvents).find(
-      '.number-of-events__input',
-    );
-    const eventObject = { target: { value: '15' } };
-    numberInput.at(0).simulate('change', eventObject);
-    expect(AppWrapper.state('numberOfEvents')).toBe('15');
-    AppWrapper.unmount();
-  });
-
   test('changing the number of events', () => {
     const AppWrapper = mount(<App />);
     const EventListWrapper = AppWrapper.find('.EventList');
