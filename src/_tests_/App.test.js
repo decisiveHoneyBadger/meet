@@ -78,7 +78,7 @@ describe('<App /> integration', () => {
     const AppWrapper = mount(<App />);
     const EventListWrapper = AppWrapper.find('.EventList');
     AppWrapper.update();
-    expect(EventListWrapper.find('.EventList')).toHaveLength(1);
+    expect(EventListWrapper.find(Event)).toHaveLength(mockData.length);
     AppWrapper.unmount();
   });
 

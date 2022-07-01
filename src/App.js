@@ -24,7 +24,7 @@ class App extends Component {
   };
 
   // changes the state of events
-  updateEvents = (location, eventCount = 31) => {
+  updateEvents = (location, eventCount) => {
     getEvents().then((events) => {
       if (eventCount !== undefined) {
         this.setState({
