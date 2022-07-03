@@ -74,12 +74,15 @@ describe('<App /> integration', () => {
     AppWrapper.unmount();
   });
 
-  test('changing the number of events', () => {
+  test('EventList renders exactly as much events as set in state', () => {
     const AppWrapper = mount(<App />);
-    const EventListWrapper = AppWrapper.find('.EventList');
-    AppWrapper.update();
-    expect(EventListWrapper.find(Event)).toHaveLength(mockData.length);
-    AppWrapper.unmount();
+    AppWrapper.setState({
+      numberOfEvents: 32,
+    });
+    const EventListWrapper = AppWrapper.find(EventList);
+    EventListWrapper.update();
+    const eventList = EventListWrapper.prop('events');
+    expect(eventList.length).toEqual(AppWrapper.state('events').length);
   });
 
   test('When the number of events field changes, the number of events changes', async () => {
