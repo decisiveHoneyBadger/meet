@@ -74,23 +74,15 @@ describe('<App /> integration', () => {
     AppWrapper.unmount();
   });
 
-  test('The state of "numberOfEvents" within App changes when number input changes', async () => {
+  test('EventList renders exactly as much events as set in state', () => {
     const AppWrapper = mount(<App />);
-    const numberInput = AppWrapper.find(NumberOfEvents).find(
-      '.number-of-events__input',
-    );
-    const eventObject = { target: { value: '15' } };
-    numberInput.at(0).simulate('change', eventObject);
-    expect(AppWrapper.state('numberOfEvents')).toBe('15');
-    AppWrapper.unmount();
-  });
-
-  test('changing the number of events', () => {
-    const AppWrapper = mount(<App />);
-    const EventListWrapper = AppWrapper.find('.EventList');
-    AppWrapper.update();
-    expect(EventListWrapper.find('.EventList')).toHaveLength(1);
-    AppWrapper.unmount();
+    AppWrapper.setState({
+      numberOfEvents: 32,
+    });
+    const EventListWrapper = AppWrapper.find(EventList);
+    EventListWrapper.update();
+    const eventList = EventListWrapper.prop('events');
+    expect(eventList.length).toEqual(AppWrapper.state('events').length);
   });
 
   test('When the number of events field changes, the number of events changes', async () => {
