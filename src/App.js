@@ -24,7 +24,7 @@ class App extends Component {
   };
 
   // changes the state of events
-  updateEvents = (location, eventCount = 31) => {
+  updateEvents = (location, eventCount) => {
     getEvents().then((events) => {
       if (eventCount !== undefined) {
         this.setState({
@@ -66,7 +66,7 @@ class App extends Component {
           locations={this.state.locations}
           updateEvents={this.updateEvents}
         />
-        <NumberOfEvents updateNumberOfEvents={this.updateNumberOfEvents} />
+        <NumberOfEvents updateEvents={this.updateNumberOfEvents} />
         <EventList events={this.state.events} />
       </div>
     );
