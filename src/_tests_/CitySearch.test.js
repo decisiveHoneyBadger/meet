@@ -35,6 +35,19 @@ describe('<CitySearch /> component', () => {
     expect(CitySearchWrapper.state('query')).toBe('Berlin');
   });
 
+  // test('should update state on input change', () => {
+  //   const input = CitySearchWrapper.find('.city')
+  //   input.simulate('change', { target: { value: 'Berlin' } })
+  //   expect(CitySearchWrapper.state('query')).toBe('Berlin');
+  // });
+
+  // test('should have empty suggested state when coty not found', () => {
+  //   const input = CitySearchWrapper.find('.city')
+  //   input.simulate('change', { target: { value: 'Paris' } })
+  //   expect(CitySearchWrapper.state('suggestions')).toEqual([]);
+  // });
+  // })
+
   test('render list of suggestions correctly', () => {
     const locations = extractLocations(mockData);
     CitySearchWrapper.setState({ suggestions: locations });
