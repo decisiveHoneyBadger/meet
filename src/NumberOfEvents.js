@@ -17,9 +17,6 @@ class NumberOfEvents extends Component {
         errorText: '',
       });
     }
-    if (this.props.updateEvents) {
-      this.props.updateEvents(event.target.value);
-    }
   };
   render() {
     return (

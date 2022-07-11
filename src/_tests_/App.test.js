@@ -90,9 +90,11 @@ describe('<App /> integration', () => {
     const numberInput = AppWrapper.find(NumberOfEvents).find(
       '.number-of-events__input',
     );
-    const eventObject = { target: { value: '2' } };
+    const eventObject = { target: { value: 2 } };
     await numberInput.at(0).simulate('change', eventObject);
-    expect(AppWrapper.state('events')).toHaveLength(2);
+    await getEvents();
+    expect(AppWrapper.state('numberOfEvents')).toEqual(2);
+    expect(AppWrapper.state('eventCount')).toEqual(0);
     AppWrapper.unmount();
   });
 });

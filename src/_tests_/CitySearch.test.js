@@ -38,7 +38,7 @@ describe('<CitySearch /> component', () => {
   test('render error message if city could not be found', () => {
     const eventObject = { target: { value: 'Paris' } };
     CitySearchWrapper.find('.city').simulate('change', eventObject);
-    expect(CitySearchWrapper.find('.error-message')).toBe(
+    expect(CitySearchWrapper.state('info-text')).toBe(
       'City could not be found. Please try another city.',
     );
   });
