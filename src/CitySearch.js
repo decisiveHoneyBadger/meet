@@ -38,7 +38,9 @@ class CitySearch extends Component {
   render() {
     return (
       <div className="CitySearch">
-        {/* {this.state.infoText && <p>{this.state.infoText}</p>} */}
+        {this.state.infoText && (
+          <p className="error-message">{this.state.infoText}</p>
+        )}
         <label htmlFor="city-search">Location: </label>
         <input
           type="text"

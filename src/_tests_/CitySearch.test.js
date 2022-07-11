@@ -35,6 +35,14 @@ describe('<CitySearch /> component', () => {
     expect(CitySearchWrapper.state('query')).toBe('Berlin');
   });
 
+  test('render error message if city could not be found', () => {
+    const eventObject = { target: { value: 'Paris' } };
+    CitySearchWrapper.find('.city').simulate('change', eventObject);
+    expect(CitySearchWrapper.find('.error-message')).toBe(
+      'City could not be found. Please try another city.',
+    );
+  });
+
   // test('should update state on input change', () => {
   //   const input = CitySearchWrapper.find('.city')
   //   input.simulate('change', { target: { value: 'Berlin' } })
