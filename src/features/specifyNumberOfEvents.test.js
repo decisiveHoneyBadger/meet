@@ -32,29 +32,24 @@ defineFeature(feature, (test) => {
   }) => {
     given('the user is on the main page', async () => {
       AppWrapper = await mount(<App />);
+      console.log('App mounted');
     });
     when(
       'the user sets a number of events and he/she wants to see in the “Number of events” box',
       () => {
         const NumberOfEventsWrapper = AppWrapper.find(NumberOfEvents);
-        NumberOfEventsWrapper.find('.number-of-events__input').simulate(
-          'change',
-          {
+
+        NumberOfEventsWrapper.find('.number-of-events__input')
+          .at(0)
+          .simulate('change', {
             target: { value: 1 },
-          },
-        );
+          });
       },
     );
 
     then('this number of events will be displayed', () => {
       const NumberOfEventsWrapper = AppWrapper.find(NumberOfEvents);
-      NumberOfEventsWrapper.find('.number-of-events__input').simulate(
-        'change',
-        {
-          target: { value: 1 },
-        },
-      );
-      expect(AppWrapper.state('numberOfEvents')).toEqual(1);
+      expect(NumberOfEventsWrapper.state('numberOfEvents')).toEqual(1);
     });
   });
 });

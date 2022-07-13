@@ -15,6 +15,7 @@ class App extends Component {
   };
 
   updateNumberOfEvents = (numberOfEvents) => {
+    console.log('updaing appjs state: ' + numberOfEvents);
     this.setState(
       {
         numberOfEvents,

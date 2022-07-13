@@ -87,14 +87,14 @@ describe('<App /> integration', () => {
 
   test('When the number of events field changes, the number of events changes', async () => {
     const AppWrapper = mount(<App />);
-    const numberInput = AppWrapper.find(NumberOfEvents).find(
-      '.number-of-events__input',
-    );
-    const eventObject = { target: { value: 2 } };
-    await numberInput.at(0).simulate('change', eventObject);
+    await AppWrapper.find(NumberOfEvents)
+      .find('.number-of-events__input')
+      .at(0)
+      .simulate('change', {
+        target: { value: 2 },
+      });
     await getEvents();
     expect(AppWrapper.state('numberOfEvents')).toEqual(2);
-    expect(AppWrapper.state('eventCount')).toEqual(0);
     AppWrapper.unmount();
   });
 });
