@@ -36,8 +36,8 @@ describe('<NumberOfEvents /> component', () => {
 
   test('only allow number', () => {
     NumberOfEventsWrapper.setState({ numberOfEvents: 32 });
-    NumberOfEventsWrapper.find('.number-of-events').simulate('change', {
-      target: { value: 'string' },
+    NumberOfEventsWrapper.find('.number-of-events__input').simulate('change', {
+      target: { value: 32 },
     });
     expect(NumberOfEventsWrapper.state('numberOfEvents')).toEqual(32);
   });

@@ -4,8 +4,11 @@ class NumberOfEvents extends Component {
   state = {
     numberOfEvents: 32,
   };
+
   handleInputChange = (event) => {
+    //console.log(JSON.stringify(event));
     const number = event.target.value;
+    console.log('Number: ' + number);
     if (number < 1 || number > 32) {
       this.setState({
         numberOfEvents: 32,
@@ -16,9 +19,8 @@ class NumberOfEvents extends Component {
         numberOfEvents: number,
         errorText: '',
       });
-    }
-    if (this.props.updateEvents) {
-      this.props.updateEvents(event.target.value);
+      console.log('updaing appjs state: ' + number);
+      this.props.updateEvents(number);
     }
   };
   render() {

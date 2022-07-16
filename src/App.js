@@ -15,6 +15,7 @@ class App extends Component {
   };
 
   updateNumberOfEvents = (numberOfEvents) => {
+    console.log('updaing appjs state: ' + numberOfEvents);
     this.setState(
       {
         numberOfEvents,
@@ -26,11 +27,12 @@ class App extends Component {
   // changes the state of events
   updateEvents = (location, eventCount) => {
     getEvents().then((events) => {
+      /*
       if (eventCount !== undefined) {
         this.setState({
           numberOfEvents: this.state.numberOfEvents,
         });
-      }
+      }*/
       const locationEvents =
         location === 'all'
           ? events
