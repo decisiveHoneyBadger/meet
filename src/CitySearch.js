@@ -42,15 +42,12 @@ class CitySearch extends Component {
   render() {
     return (
       <div className="CitySearch">
-        <InfoAlert text={this.state.infoText} />
-        {this.state.infoText && (
-          <p className="error-message">{this.state.infoText}</p>
-        )}
+        {this.state.infoText && <InfoAlert text={this.state.infoText} />}
         <label htmlFor="city-search">Location: </label>
         <input
           type="text"
           id="city-search"
-          className="city"
+          className="meet-input"
           value={this.state.query}
           onChange={this.handleInputChanged}
           onFocus={() => {

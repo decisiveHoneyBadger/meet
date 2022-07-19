@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
+import { WarningAlert } from './Alert';
 
 class Event extends Component {
   state = {
     collapsed: true,
+    warningText: 'This event is going to be soon run out',
   };
 
   handleClick = () => {
@@ -28,6 +30,7 @@ class Event extends Component {
     const { event } = this.props;
     return (
       <div className="event">
+        <WarningAlert text={this.state.warningText} />
         <h3 className="title">{event.summary}</h3>
         <p className="start-time">{this.dateNewFormat(event.start.dateTime)}</p>
         <p className="location">{event.location}</p>
