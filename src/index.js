@@ -28,4 +28,4 @@ serviceWorkerRegistration.register();
 // or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
 reportWebVitals();
 
-atatus.config('d08b0a9bf4c742db916ab4b31bc30996').install();
+// atatus.config('d08b0a9bf4c742db916ab4b31bc30996').install();
