@@ -18,7 +18,7 @@ This app was designed to offer users the opportunity to find out any events taki
 
 ### Scenario 3: Collapse the details
 
-- Given the details are expanded
+- Given the details are expande
 - When the user clicks on the expanded details
 - Then the details will collapse again
 
