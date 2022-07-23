@@ -15,11 +15,11 @@ class CitySearch extends Component {
     const suggestions = this.props.locations.filter((location) => {
       return location.toUpperCase().indexOf(value.toUpperCase()) > -1;
     });
+    console.log(JSON.stringify(suggestions));
     if (suggestions.length === 0) {
       this.setState({
         query: value,
-        infoText:
-          'The City you are looking for could not be found. Please try another city.',
+        infoText: 'The City could not be found. Please try another city.',
       });
     } else {
       return this.setState({

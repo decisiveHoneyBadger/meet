@@ -17,7 +17,7 @@ export const extractLocations = (events) => {
 };
 
 // checks the token's validity, if a token has been found. If so, it gets the events of the Google Calender API
-const checkToken = async (accessToken) => {
+export const checkToken = async (accessToken) => {
   const result = await fetch(
     `https://www.googleapis.com/oauth2/v1/tokeninfo?access_token=${accessToken}`,
   )
@@ -35,11 +35,11 @@ export const getEvents = async () => {
     NProgress.done();
     return mockData;
   }
-  // if (!navigator.onLine) {
-  //   const data = localStorage.getItem('lastEvents');
-  //   NProgress.done();
-  //   return data ? JSON.parse(events).events : [];
-  // }
+  if (!navigator.onLine) {
+    const data = localStorage.getItem('lastEvents');
+    NProgress.done();
+    return data ? JSON.parse(data).events : [];
+  }
 
   const token = await getAccessToken();
 
