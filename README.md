@@ -53,7 +53,7 @@ As a user I should have the option to choose the number of events I want to see
 - When the user hasn't specified the number of events
 - Then the default number of displayed events should be 32
 
-## Scenario 2: User can change the number of events they want to see
+### Scenario 2: User can change the number of events they want to see
 
 - Given the list of events is loaded
 - When the user inserts a number in the "number of events" input
@@ -75,7 +75,7 @@ As a user I want to be able to access events even when being offline
 - When the user changes the location/information
 - Then an error will be displayed
 
-### Feature 5: Data Visualization
+## Feature 5: Data Visualization
 
 As a user I want to see the charts with the number of upcoming events in each city
 
