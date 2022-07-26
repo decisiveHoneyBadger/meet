@@ -18,13 +18,16 @@ export const extractLocations = (events) => {
 
 // checks the token's validity, if a token has been found. If so, it gets the events of the Google Calender API
 export const checkToken = async (accessToken) => {
+  console.log('ACCESS TOKEN: ' + accessToken);
+  if (!accessToken) return {};
   const result = await fetch(
     `https://www.googleapis.com/oauth2/v1/tokeninfo?access_token=${accessToken}`,
   )
     .then((res) => res.json())
-    .catch((error) => error.json());
+    .catch((error) => console.log(error));
 
-  return result;
+  console.log('RESULT: ' + result);
+  return result || {};
 };
 
 export const getEvents = async () => {
@@ -33,6 +36,7 @@ export const getEvents = async () => {
   // returns (in getEvents) the mock data, when localhost is used; otherwise the real API
   if (window.location.href.startsWith('http://localhost')) {
     NProgress.done();
+    console.log('mock data' + JSON.stringify(mockData));
     return mockData;
   }
   if (!navigator.onLine) {
@@ -65,7 +69,7 @@ export const getAccessToken = async () => {
   const accessToken = localStorage.getItem('access_token');
 
   // retrieves the access token from the Lambda functions on the authorization server. Google will then redirect the user back to the app
-  const tokenCheck = accessToken && (await checkToken(accessToken));
+  const tokenCheck = !!accessToken ? await checkToken(accessToken) : {};
 
   if (!accessToken || tokenCheck.error) {
     await localStorage.removeItem('access_token');

@@ -12,6 +12,7 @@ class CitySearch extends Component {
   handleInputChanged = (event) => {
     const value = event.target.value;
     this.setState({ showSuggestions: true });
+
     const suggestions = this.props.locations.filter((location) => {
       return location.toUpperCase().indexOf(value.toUpperCase()) > -1;
     });
@@ -19,13 +20,13 @@ class CitySearch extends Component {
     if (suggestions.length === 0) {
       this.setState({
         query: value,
-        infoText: 'The City could not be found. Please try another city.',
+        infoText: 'The city could not be found. Please try another city.',
       });
     } else {
-      return this.setState({
+      this.setState({
         query: value,
-        suggestions: [],
-        showSuggestions: false,
+        suggestions: suggestions,
+        showSuggestions: true,
         infoText: '',
       });
     }

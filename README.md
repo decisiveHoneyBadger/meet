@@ -2,6 +2,27 @@
 
 This app was designed to offer users the opportunity to find out any events taking place in their locations based on the Google Calender API.
 
+## <u>Images</u>
+
+![](public/4.9-meet-app.png)
+![](public/4.9-meet-app-2.png)
+
+## <u>Characteristics</u>
+
+- Serverless function
+- PWA
+- CI/CD
+- Data visualization (scatterplot and pie charts)
+
+## <u>Technologies</u>
+
+- HTML
+- CSS
+- JavaScript
+- React
+- Jest (unit tests), Enzyme (integration tests), Puppeteer (end-to-end tests), Cucumber (user acceptance tests)
+- Recharts
+
 ## Feature 2: Show/hide event's details
 
 ### Scenario 1: Collapsed by default
