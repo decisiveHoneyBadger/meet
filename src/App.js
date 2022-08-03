@@ -40,12 +40,12 @@ class App extends Component {
   // changes the state of events
   updateEvents = (location, eventCount) => {
     getEvents().then((events) => {
-      /*
       if (eventCount !== undefined) {
         this.setState({
-          numberOfEvents: this.state.numberOfEvents,
+          numberOfEvents: eventCount,
         });
-      }*/
+      }
+      if (!location) location = this.state.currentLocation;
       const locationEvents =
         location === 'all'
           ? events
