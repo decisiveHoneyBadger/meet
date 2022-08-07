@@ -47,9 +47,11 @@ class App extends Component {
       }
       if (!location) location = this.state.currentLocation;
       const locationEvents =
-        location === 'all'
-          ? events
-          : events.filter((event) => event.location === location);
+        location === 'all' || location === undefined
+          ? events.slice(0, this.state.numberOfEvents)
+          : events
+              .filter((e) => e.location === location)
+              .slice(0, this.state.numberOfEvents);
 
       this.setState({
         events: locationEvents.slice(0, this.state.numberOfEvents),
@@ -74,7 +76,7 @@ class App extends Component {
       getEvents().then((events) => {
         if (this.mounted) {
           this.setState({
-            events,
+            events: events.slice(0, this.state.numberOfEvents),
             locations: extractLocations(events),
           });
         }
