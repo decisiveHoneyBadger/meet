@@ -9,7 +9,7 @@ This app was designed to offer users the opportunity to find out any events taki
 
 ## <u>Characteristics</u>
 
-- Serverless function
+- Serverless function (AWS)
 - PWA
 - CI/CD
 - Data visualization (scatterplot and pie charts)
