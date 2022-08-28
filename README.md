@@ -5,8 +5,8 @@ This app was designed to offer users the opportunity to find out any events taki
 ## <u>Images</u>
 
 <p align="center">
-    <img height="200" src="![](public/4.9-meet-app.png)" >
-    <img height="200" src="![](public/4.9-meet-app-2.png)" >
+    <img height="200" src="/public/4.9-meet-app.png">
+    <img height="200" src="public/4.9-meet-app-2.png">
 </p>
 
 ## <u>Characteristics</u>
